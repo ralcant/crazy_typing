@@ -95,7 +95,7 @@ class App extends React.Component {
     });
 
     this.timer = setInterval(() => {
-      console.log("Trying to get...");
+      // console.log("Trying to get...");
       this.getNumberOfEntries();
     }, 1000);
 
