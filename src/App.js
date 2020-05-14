@@ -28,7 +28,7 @@ class App extends React.Component {
       ableToLoadMore: false,
       currNumRequest: 0,
     };
-    this.url = "http://608dev-2.net/sandbox/sc/ralcanta/crazy_typing/server.py";
+    this.url = "https://608dev-2.net/sandbox/sc/ralcanta/crazy_typing/server.py";
   }
   handleChange = (event)=>{
     this.setState({word: event.target.value});
