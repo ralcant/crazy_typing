@@ -142,7 +142,7 @@ class App extends React.Component {
           {
           this.state.changed && 
           <Col md={5} className = "output">
-            <i>Output</i>
+            <i>Output:</i>
             <Form.Control disabled={true} as="textarea"  value = {this.state.convertText}/>
             <CopyToClipboard text ={this.state.convertText}>
               <Button variant="info">
@@ -152,7 +152,7 @@ class App extends React.Component {
           </Col>
           } 
         <p className ="footer">
-          Do you think this is useless? Me too!
+          Do you think this is useless? Me too! <br></br>
           However, this has been used <i className="num_times">{numRequests} times</i>  already. So, who knows?
         </p>
 
