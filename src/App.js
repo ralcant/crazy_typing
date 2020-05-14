@@ -8,10 +8,10 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 // import "socket.io"
 
-import {useRef} from 'react';
+// import {useRef} from 'react';
 import {CopyToClipboard} from 'react-copy-to-clipboard';
 
-const io = require('socket.io')();
+// const io = require('socket.io')();
 // import openSocket from 'socket.io-client';
 // let myURL = "localhost:5000";
 // const socket = require('socket.io').connect(myURL);
@@ -58,33 +58,33 @@ class App extends React.Component {
     return result;
   }
   getNumberOfEntries = () =>{
-    // fetch(this.url)
-    // .then(res => res.json())
-    // .then(res => {
-    //   this.setState({ //every time we can get the request, we save it in current
-    //     currNumRequest: res,
-    //     lastNumRequests: res,
-    //     ableToLoadMore: true,
-    //   });
-    // },
-    // (error) => {
-    //     this.setState({
-    //       ableToLoadMore: false,
-    //     });
-    //   }
-    // )
+    fetch(this.url)
+    .then(res => res.json())
+    .then(res => {
+      this.setState({ //every time we can get the request, we save it in current
+        currNumRequest: res,
+        lastNumRequests: res,
+        ableToLoadMore: true,
+      });
+    },
+    (error) => {
+        this.setState({
+          ableToLoadMore: false,
+        });
+      }
+    )
   }
   addAnEntry = () =>{
-    io.emit('new_entry');
-    // let postParams = {
-    //   headers: {
-    //     "content-type": "applications/jsons; charset=UTF-8"
-    //   },
-    //   method:"POST"
-    // }
-    // fetch(this.url, postParams)
-    // .then(data => data.json)
-    // .then(res => console.log(res))
+    // io.emit('new_entry');
+    let postParams = {
+      headers: {
+        "content-type": "applications/jsons; charset=UTF-8"
+      },
+      method:"POST"
+    }
+    fetch(this.url, postParams)
+    .then(data => data.json)
+    .then(res => console.log(res))
   }
   componentDidMount = () =>{
     this.getNumberOfEntries();
@@ -99,15 +99,15 @@ class App extends React.Component {
       this.getNumberOfEntries();
     }, 1000);
 
-    this.setupSocketClient();
+    // this.setupSocketClient();
   }
-  setupSocketClient = () =>{
-    // var io = socket.connect("http://localhost:5000/");
-    // io.on('connect', ()=>{
-    //   console.log("socked succesfully connected!");
-    // })
+  // setupSocketClient = () =>{
+  //   // var io = socket.connect("http://localhost:5000/");
+  //   // io.on('connect', ()=>{
+  //   //   console.log("socked succesfully connected!");
+  //   // })
 
-  }
+  // }
   componentWillUnmount(){
     console.log("clearing timer...");
     clearInterval(this.timer);
@@ -129,7 +129,7 @@ class App extends React.Component {
           </p>
           <h1 className="title"> {this.state.entryMessage}</h1>
           <Form onSubmit ={this.handleSubmit}>
-            <p>Try typing <i>anything</i> (even code!) and see how it works</p>
+            <p>Try typing <i>anything</i> (even code!) and see it <i>CHaNGeD</i></p>
             <Form.Control as="textarea"  value = {this.state.word} onChange= {this.handleChange}/>
             <Button variant="primary" type="submit" className="separated">
               ChAnGe It
@@ -152,8 +152,8 @@ class App extends React.Component {
           </Col>
           } 
         <p className ="footer">
-          Do you think this is useless? You are not alone!
-          However, this has been used <i className="num_times">{numRequests} times</i>  So, who knows?
+          Do you think this is useless? Me too!
+          However, this has been used <i className="num_times">{numRequests} times</i>  already. So, who knows?
         </p>
 
         </header>
