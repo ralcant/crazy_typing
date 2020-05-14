@@ -11,3 +11,24 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.title{
+  /* color: cyan; */
+  color: #3399ff ;
+}
+.separated{
+  margin-right: 10px;
+}
+.output{
+  padding: 30px;
+}
+.footer{
+  padding-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.num_times{
+  color: #E3C11B;
+}
